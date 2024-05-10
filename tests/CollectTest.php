@@ -31,6 +31,26 @@ class CollectTest extends TestCase
         $value = $collect->get('b');
 
         $this->assertEquals(2, $value);
+    }
+
+    // Тестирование метода except()
+    public function testExceptMethod()
+    {
+        $collect = new Collect($this->testArray);
+        $filtered = $collect->except('b')->toArray();
+        $expectedArray = ['a' => 1, 'c' => 3];
+
+        $this->assertEquals($expectedArray, $filtered);
+    }
+
+    // Тестирование метода only()
+    public function testOnlyMethod()
+    {
+        $collect = new Collect($this->testArray);
+        $filtered = $collect->only('a', 'b')->toArray();
+        $expectedArray = ['a' => 1, 'b' => 2];
+
+        $this->assertEquals($expectedArray, $filtered);
     }}
 
 
