@@ -78,5 +78,5 @@ class CollectTest extends TestCase
         $toArray = $collect->toArray();
 
         $this->assertEquals($this->testArray, $toArray);
-    }
+    }}
 
