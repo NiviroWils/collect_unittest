@@ -51,6 +51,14 @@ class CollectTest extends TestCase
         $expectedArray = ['a' => 1, 'b' => 2];
 
         $this->assertEquals($expectedArray, $filtered);
-    }}
+    }
 
+    // Тестирование метода first()
+    public function testFirstMethod()
+    {
+        $collect = new Collect($this->testArray);
+        $first = $collect->first();
+
+        $this->assertEquals(1, $first);
+    }}
 
