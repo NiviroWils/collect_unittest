@@ -60,5 +60,23 @@ class CollectTest extends TestCase
         $first = $collect->first();
 
         $this->assertEquals(1, $first);
-    }}
+    }
+
+    // Тестирование метода count()
+    public function testCountMethod()
+    {
+        $collect = new Collect($this->testArray);
+        $count = $collect->count();
+
+        $this->assertEquals(3, $count);
+    }
+
+    // Тестирование метода toArray()
+    public function testToArrayMethod()
+    {
+        $collect = new Collect($this->testArray);
+        $toArray = $collect->toArray();
+
+        $this->assertEquals($this->testArray, $toArray);
+    }
 
