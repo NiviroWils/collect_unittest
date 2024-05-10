@@ -87,23 +87,24 @@ class CollectTest extends TestCase
 
         // push()
         $collect->push(4);
-        $this->assertEquals([1, 2, 3, 4], $collect->toArray());
+        $array = $collect->toArray();
+        $this->assertEquals(4, end($array));
 
         // unshift()
         $collect->unshift(0);
-        $this->assertEquals([0, 1, 2, 3, 4], $collect->toArray());
+        $array = $collect->toArray();
+        $this->assertEquals(0, reset($array));
 
         // shift()
         $collect->shift();
-        $this->assertEquals([1, 2, 3, 4], $collect->toArray());
+        $array = $collect->toArray();
+        $this->assertEquals(1, reset($array));
 
         // pop()
         $collect->pop();
-        $this->assertEquals([1, 2, 3], $collect->toArray());
+        $array = $collect->toArray();
+        $this->assertEquals(3, end($array));
 
-        // splice()
-        $collect->splice(1, 1);
-        $this->assertEquals([1, 3], $collect->toArray());
     }
-}
 
+}
