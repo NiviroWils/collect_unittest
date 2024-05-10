@@ -78,5 +78,32 @@ class CollectTest extends TestCase
         $toArray = $collect->toArray();
 
         $this->assertEquals($this->testArray, $toArray);
-    }}
+    }
+
+    // Тестирование методов push(), unshift(), shift(), pop(), splice()
+    public function testManipulationMethods()
+    {
+        $collect = new Collect($this->testArray);
+
+        // push()
+        $collect->push(4);
+        $this->assertEquals([1, 2, 3, 4], $collect->toArray());
+
+        // unshift()
+        $collect->unshift(0);
+        $this->assertEquals([0, 1, 2, 3, 4], $collect->toArray());
+
+        // shift()
+        $collect->shift();
+        $this->assertEquals([1, 2, 3, 4], $collect->toArray());
+
+        // pop()
+        $collect->pop();
+        $this->assertEquals([1, 2, 3], $collect->toArray());
+
+        // splice()
+        $collect->splice(1, 1);
+        $this->assertEquals([1, 3], $collect->toArray());
+    }
+}
 
